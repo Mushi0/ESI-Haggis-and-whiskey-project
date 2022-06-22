@@ -2,13 +2,13 @@ from docplex.mp.model import Model
 from docplex.util.environment import get_environment
 import numpy as np
 import pandas as pd
-from network import network
+from Network import network
 
 #-----------------------------------------------------------------------------
 # Build the model
 #-----------------------------------------------------------------------------
 
-class facility_benders_model:
+class haggis_model:
 
     def __init__(self, network):
         self.network = network
@@ -36,6 +36,9 @@ class facility_benders_model:
             self.assign.append(assign)
             print()
 
+            print('Penalty applied to customer: {}'.format(", ".join(str(i) for j in self.network.customer_index if self.msol[self.U[j]] >= 0.99)))
+            print()
+
             # Print the costs
             print("Total cost is: {}".format(self.msol[self.total_cost]))
             print("Facility building cost: {}".format(self.result['Facility building cost'][0]))
@@ -53,7 +56,7 @@ class facility_benders_model:
     def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 10, mip_gap = 0.01, json = False, clean_before_solve = True):
         self.mdl = Model()
 
-        self.M = max(self.network.dis_suppliers_districts)
+        self.M = np.max(self.network.dis_suppliers_districts)
         self.time_horizon = time_horizon
 
         # Create binary variables
@@ -73,24 +76,24 @@ class facility_benders_model:
                 self.mdl.add(self.x[i, j] <= self.y[i])
         # demand does not exeed supplies
         for i in self.network.candidates_index:
-            for k in self.network.suppliers_index:
-                self.mdl.add(self.mdl.sum(self.x[i, j] for j in self.network.customer_index)*self.network.demand[j, t] <=
-                            (self.mdl.sum(self.z[k, i]*self.type[k, t])))
+            for t in self.network.food_index:
+                self.mdl.add(self.mdl.sum(self.x[i, j]*self.network.demand[j, t] for j in self.network.customer_index) <=
+                            (self.mdl.sum(self.z[k, i]*self.network.type[k, t] for k in self.network.suppliers_index)))
         # storage less than capacity
         for i in self.network.candidates_index:
-            self.mdl.add(mdl.sum(self.z[k, i] for k in self.network.suppliers_index) <=
+            self.mdl.add(self.mdl.sum(self.z[k, i] for k in self.network.suppliers_index) <=
                         self.network.capacity[i]*self.y[i])
         # less than 150 miles
         for i in self.network.candidates_index:
             for j in self.network.customer_index:
-                self.mdl.add(x[i, j]*self.network.dis_suppliers_districts[j, i] <= 150)
+                self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150)
         # # linking constraint for penalty
         # # find the nearest open facility
         # for i in self.network.candidates_index:
         #     for i_prime in self.network.candidates_index:
         #         for j in self.network.customer_index:
-        #             self.mdl.add(self.V[i, j]*self.dis_suppliers_districts[j, i] <=
-        #                         self.y[i_prime]*self.dis_suppliers_districts[j, i_prime] +
+        #             self.mdl.add(self.V[i, j]*self.dis_districts_districts[i, j] <=
+        #                         self.y[i_prime]*self.dis_districts_districts[i_prime, j] +
         #                         self.M(1 - self.y[i_prime]))
         # # if the customer is assigned to the nearest open facility
         # for i in self.network.candidates_index:
@@ -101,12 +104,13 @@ class facility_benders_model:
             for j in self.network.customer_index:
                 self.mdl.add(self.U[j] + self.x[i, j] >= self.y[i] -
                         self.mdl.sum(self.y[i_prime] for i_prime in self.network.candidates_index if \
-                        self.network.dis_suppliers_districts[j, i_prime] < self.network.dis_suppliers_districts[j, i]))
+                        self.network.dis_districts_districts[i_prime, j] < self.network.dis_districts_districts[i, j]))
 
         self.total_cost = self.mdl.scal_prod(self.y, self.network.fixed_cost) + \
-                        self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_suppliers_districts[j, i]*self.network.demand[j, t]*self.x[i, j] \
+                        self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
                         for i in self.network.candidates_index for j in self.network.customer_index for t in self.network.food_index) + \
-                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[k, i]*self.z[k, i]) + \
+                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
+                        for k in self.network.suppliers_index for i in self.network.candidates_index) + \
                         self.network.penalty*sum(self.U[j] for j in self.network.customer_index)
 
         # Minimize total cost
@@ -142,10 +146,11 @@ class facility_benders_model:
                 'best bound': [self.mdl.solve_details.best_bound],
                 'objective': [self.msol[self.total_cost]],
                 'Facility building cost': [sum([self.msol[self.y[i]]*self.network.fixed_cost[i] for i in self.network.candidates_index])],
-                'Transportation cost': [self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_suppliers_districts[j, i]*\
+                'Transportation cost': [self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*\
                         self.network.demand[j, t]*self.msol[self.x[i, j]] for i in self.network.candidates_index \
                         for j in self.network.customer_index for t in self.network.food_index) + \
-                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[k, i]*self.msol[self.z[k, i]])],
+                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.msol[self.z[k, i]] \
+                        for k in self.network.suppliers_index for i in self.network.candidates_index)],
                 'Penalty': [self.network.penalty*sum(self.msol[self.U[j]] for j in self.network.customer_index)]})
         # if the model is infeasible
         else:
