@@ -1,4 +1,5 @@
 from docplex.mp.model import Model
+import docplex.mp.conflict_refiner as cr
 from docplex.util.environment import get_environment
 import numpy as np
 import pandas as pd
@@ -18,6 +19,8 @@ class haggis_model:
         if self.mdl.solve_details.status == 'integer infeasible':
             print("*******************Solution*******************")
             print('The model is infeasible! ')
+            cref = cr.ConflictRefiner()
+            cref.refine_conflict(self.mdl, display = True)
             print("*******************End Solution*******************")
             return 0
         # Print solution
@@ -25,12 +28,12 @@ class haggis_model:
         self.assign = []
         if self.msol:
             assign = []
-            for j in self.network.candidates_index:
-                if self.msol[self.y[j]] >= 0.99:
-                    assign.append([i for i in self.network.customer_index if self.msol[self.x[i, j]] >= 0.99])
+            for i in self.network.candidates_index:
+                if self.msol[self.y[i]] >= 0.99:
+                    assign.append([j for j in self.network.customer_index if self.msol[self.x[i, j]] >= 0.99])
                     # If a facility is open, print the costumers that is assigned to the facility
                     print("Facility {} open to serve customers: {}"
-                          .format(j, ", ".join(str(i) for i in self.network.customer_index if self.msol[self.x[i, j]] >= 0.99)))
+                          .format(i, ", ".join(str(j) for j in self.network.customer_index if self.msol[self.x[i, j]] >= 0.99)))
                 else:
                     assign.append([])
             self.assign.append(assign)
@@ -53,7 +56,7 @@ class haggis_model:
             print("No solution found.")
         print("*******************End Solution*******************")
 
-    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 10, mip_gap = 0.01, json = False, clean_before_solve = True):
+    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 120, mip_gap = 0.01, json = False, clean_before_solve = True):
         self.mdl = Model()
 
         # self.M = np.max(self.network.dis_suppliers_districts)
@@ -84,10 +87,10 @@ class haggis_model:
         for i in self.network.candidates_index:
             self.mdl.add(self.mdl.sum(self.z[k, i] for k in self.network.suppliers_index) <=
                         self.network.capacity[i]*self.y[i])
-        # less than 150 miles
-        for i in self.network.candidates_index:
-            for j in self.network.customer_index:
-                self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
+        # # less than 150 miles
+        # for i in self.network.candidates_index:
+        #     for j in self.network.customer_index:
+        #         self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
         # # linking constraint for penalty
         # # find the nearest open facility
         # for i in self.network.candidates_index:

@@ -40,8 +40,8 @@ class network:
         self.capacity = np.array(Candidates['Annual capacity'])
         # self.type = np.array(Suppliers['Product group'] - 1)
         self.type = np.zeros([len(np.array(Suppliers['Product group'])), 4])
-        for i, t in enumerate(np.array(Suppliers['Product group'])):
-            self.demand[i, t - 1] = 1
+        for i, t in enumerate(np.array(Suppliers['Product group'] - 1)):
+            self.type[i, t] = 1
         self.penalty = 50000
         self.set_size(len(Customers), len(Candidates), len(Suppliers), self.demand.shape[1])
 
