@@ -56,14 +56,15 @@ class haggis_model:
     def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 10, mip_gap = 0.01, json = False, clean_before_solve = True):
         self.mdl = Model()
 
-        self.M = np.max(self.network.dis_suppliers_districts)
+        # self.M = np.max(self.network.dis_suppliers_districts)
         self.time_horizon = time_horizon
 
         # Create binary variables
         self.x = self.mdl.binary_var_matrix(self.network.candidates_index, self.network.customer_index, name = 'x')
         self.y = self.mdl.binary_var_list(self.network.candidates_index, name = 'y')
-        self.V = self.mdl.binary_var_matrix(self.network.candidates_index, self.network.customer_index, name = 'V')
-        self.U = self.mdl.binary_var_list(self.network.customer_index, name = 'U')
+        # self.V = self.mdl.binary_var_matrix(self.network.candidates_index, self.network.customer_index, name = 'V')
+        # self.U = self.mdl.binary_var_list(self.network.customer_index, name = 'U')
+        self.U = self.mdl.continuous_var_list(self.network.customer_index, name = 'U')
         self.z = self.mdl.continuous_var_matrix(self.network.suppliers_index, self.network.candidates_index, name = 'z')
 
         # Add constraints
@@ -86,7 +87,7 @@ class haggis_model:
         # less than 150 miles
         for i in self.network.candidates_index:
             for j in self.network.customer_index:
-                self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150)
+                self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
         # # linking constraint for penalty
         # # find the nearest open facility
         # for i in self.network.candidates_index:
