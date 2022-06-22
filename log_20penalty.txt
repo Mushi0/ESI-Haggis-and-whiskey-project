@@ -1,0 +1,910 @@
+Model: docplex_model1
+ - number of variables: 217800
+   - binary=194040, integer=0, continuous=23760
+ - number of constraints: 583493
+   - linear=583493
+ - parameters:
+     parameters.timelimit = 600.00000000000000
+     parameters.mip.tolerances.mipgap = 0.01000000000000
+ - objective: minimize
+ - problem type is: MILP
+
+Solving model....
+
+time limit exceeded, the best bound is:  0.0
+status  = time limit exceeded
+time    = 605.453 s.
+problem = MILP
+gap     = 100%
+
+* model docplex_model1 solved with objective = 4595059044.829
+*******************Solution*******************
+Facility 0 have products from suppliers: 3, 18, 28, 45
+Facility 1 have products from suppliers: 3, 18, 28, 45
+Facility 2 have products from suppliers: 3, 18, 28, 45
+Facility 3 have products from suppliers: 3, 18, 28, 45
+Facility 4 have products from suppliers: 3, 18, 28, 45
+Facility 5 have products from suppliers: 3, 18, 28, 45
+Facility 6 have products from suppliers: 3, 18, 28, 45
+Facility 7 have products from suppliers: 13, 18, 28, 45
+Facility 8 have products from suppliers: 13, 18, 28, 45
+Facility 9 have products from suppliers: 13, 18, 28, 45
+Facility 10 have products from suppliers: 3, 13, 18, 28, 45
+Facility 11 have products from suppliers: 3, 18, 28, 45
+Facility 12 have products from suppliers: 3, 18, 28, 45
+Facility 13 have products from suppliers: 3, 18, 28, 45
+Facility 14 have products from suppliers: 3, 18, 28, 45
+Facility 15 have products from suppliers: 3, 18, 28, 45
+Facility 16 have products from suppliers: 3, 18, 28, 45
+Facility 17 have products from suppliers: 3, 22, 35, 45
+Facility 18 have products from suppliers: 3, 22, 35, 47
+Facility 19 have products from suppliers: 11, 22, 37, 47
+Facility 20 have products from suppliers: 11, 22, 37, 47
+Facility 21 have products from suppliers: 3, 18, 28, 45
+Facility 22 have products from suppliers: 13, 22, 35, 45
+Facility 23 have products from suppliers: 13, 22, 35, 45
+Facility 24 have products from suppliers: 13, 22, 35, 47
+Facility 25 have products from suppliers: 13, 22, 37, 47
+Facility 26 have products from suppliers: 13, 22, 37, 47
+Facility 27 have products from suppliers: 13, 18, 22, 28, 46
+Facility 28 have products from suppliers: 13, 22, 35, 46
+Facility 29 have products from suppliers: 13, 22, 35, 47
+Facility 30 have products from suppliers: 13, 22, 37, 47
+Facility 31 have products from suppliers: 13, 22, 37, 47
+Facility 32 have products from suppliers: 11, 22, 37, 47
+Facility 33 have products from suppliers: 6, 14, 28, 44
+Facility 34 have products from suppliers: 6, 14, 28, 44
+Facility 35 have products from suppliers: 6, 14, 28, 44
+Facility 36 have products from suppliers: 6, 14, 28, 44
+Facility 37 have products from suppliers: 6, 17, 28, 44
+Facility 38 have products from suppliers: 6, 14, 28, 44
+Facility 39 have products from suppliers: 6, 17, 28, 44
+Facility 40 have products from suppliers: 3, 6, 17, 28, 44
+Facility 41 have products from suppliers: 3, 18, 28, 45
+Facility 42 have products from suppliers: 3, 19, 28, 45
+Facility 43 have products from suppliers: 6, 19, 28, 44, 45
+Facility 44 have products from suppliers: 5, 25, 34, 38
+Facility 45 have products from suppliers: 5, 25, 27, 38
+Facility 46 have products from suppliers: 5, 25, 27, 38
+Facility 47 have products from suppliers: 5, 25, 27, 38
+Facility 48 have products from suppliers: 5, 25, 27, 38
+Facility 49 have products from suppliers: 10, 25, 29, 38
+Facility 50 have products from suppliers: 10, 25, 29, 38
+Facility 51 have products from suppliers: 10, 25, 29, 38
+Facility 52 have products from suppliers: 10, 26, 29, 38
+Facility 53 have products from suppliers: 5, 25, 34, 38
+Facility 54 have products from suppliers: 5, 25, 34, 38
+Facility 55 have products from suppliers: 5, 25, 34, 38
+Facility 56 have products from suppliers: 5, 25, 34, 38
+Facility 57 have products from suppliers: 5, 25, 34, 38
+Facility 58 have products from suppliers: 6, 25, 30, 45
+Facility 59 have products from suppliers: 6, 25, 30, 45
+Facility 60 have products from suppliers: 9, 25, 30, 45
+Facility 61 have products from suppliers: 9, 16, 31, 35, 50
+Facility 62 have products from suppliers: 6, 25, 35, 45
+Facility 63 have products from suppliers: 9, 25, 35, 45
+Facility 64 have products from suppliers: 7, 24, 25, 30, 51
+Facility 65 have products from suppliers: 6, 7, 25, 34, 45
+Facility 66 have products from suppliers: 6, 9, 24, 34, 51
+Facility 67 have products from suppliers: 6, 25, 34, 51
+Facility 68 have products from suppliers: 9, 25, 30, 34, 35, 42, 45
+Facility 69 have products from suppliers: 6, 16, 20, 31, 45, 50
+Facility 70 have products from suppliers: 6, 25, 34, 51
+Facility 71 have products from suppliers: 9, 25, 34, 42
+Facility 72 have products from suppliers: 7, 24, 34, 51
+Facility 73 have products from suppliers: 7, 24, 34, 51
+Facility 74 have products from suppliers: 7, 24, 34, 51
+Facility 75 have products from suppliers: 7, 24, 34, 51
+Facility 76 have products from suppliers: 7, 24, 34, 51
+Facility 77 have products from suppliers: 7, 24, 34, 51
+Facility 78 have products from suppliers: 7, 24, 34, 51
+Facility 79 have products from suppliers: 7, 24, 34, 51
+Facility 80 have products from suppliers: 7, 24, 34, 51
+Facility 81 have products from suppliers: 7, 25, 34, 51
+Facility 82 have products from suppliers: 7, 24, 34, 51
+Facility 83 have products from suppliers: 6, 25, 34, 51
+Facility 84 have products from suppliers: 9, 20, 35, 42
+Facility 85 have products from suppliers: 6, 16, 35, 50
+Facility 86 have products from suppliers: 6, 16, 31, 50
+Facility 87 have products from suppliers: 9, 16, 31, 50
+Facility 88 have products from suppliers: 7, 25, 34, 51
+Facility 89 have products from suppliers: 7, 25, 34, 51
+Facility 90 have products from suppliers: 7, 24, 34, 51
+Facility 91 have products from suppliers: 7, 24, 34, 51
+Facility 92 have products from suppliers: 7, 24, 34, 51
+Facility 93 have products from suppliers: 7, 24, 34, 51
+Facility 94 have products from suppliers: 7, 24, 34, 51
+Facility 95 have products from suppliers: 7, 24, 34, 51
+Facility 96 have products from suppliers: 7, 25, 34, 51
+Facility 97 have products from suppliers: 7, 24, 34, 51
+Facility 98 have products from suppliers: 7, 25, 34, 51
+Facility 99 have products from suppliers: 7, 24, 34, 51
+Facility 100 have products from suppliers: 7, 24, 34, 38, 51
+Facility 101 have products from suppliers: 7, 24, 34, 38
+Facility 102 have products from suppliers: 5, 24, 34, 51
+Facility 103 have products from suppliers: 5, 25, 34, 51
+Facility 104 have products from suppliers: 6, 26, 35, 42
+Facility 105 have products from suppliers: 6, 26, 35, 43
+Facility 106 have products from suppliers: 9, 20, 35, 43
+Facility 107 have products from suppliers: 9, 20, 35, 43
+Facility 108 have products from suppliers: 9, 20, 35, 42
+Facility 109 have products from suppliers: 6, 20, 35, 42
+Facility 110 have products from suppliers: 6, 20, 35, 42
+Facility 111 have products from suppliers: 6, 20, 35, 42
+Facility 112 have products from suppliers: 9, 26, 35, 43
+Facility 113 have products from suppliers: 6, 23, 35, 43
+Facility 114 have products from suppliers: 9, 15, 35, 43
+Facility 115 have products from suppliers: 8, 21, 35, 43
+Facility 116 have products from suppliers: 6, 8, 23, 35, 43
+Facility 117 have products from suppliers: 8, 21, 36, 49
+Facility 118 have products from suppliers: 8, 21, 36, 49
+Facility 119 have products from suppliers: 8, 21, 36, 49
+Facility 120 have products from suppliers: 8, 21, 36, 49
+Facility 121 have products from suppliers: 8, 21, 35, 49
+Facility 122 have products from suppliers: 8, 21, 36, 49
+Facility 123 have products from suppliers: 8, 21, 36, 49
+Facility 124 have products from suppliers: 8, 21, 36, 50
+Facility 125 have products from suppliers: 8, 21, 36, 50
+Facility 126 have products from suppliers: 8, 21, 36, 49
+Facility 127 have products from suppliers: 8, 21, 36, 49
+Facility 128 have products from suppliers: 0, 21, 36, 49
+Facility 129 have products from suppliers: 0, 21, 36, 50
+Facility 130 have products from suppliers: 0, 21, 36, 50
+Facility 131 have products from suppliers: 0, 21, 35, 47
+Facility 132 have products from suppliers: 0, 21, 35, 47
+Facility 133 have products from suppliers: 0, 22, 27, 49
+Facility 134 have products from suppliers: 1, 20, 27, 49
+Facility 135 have products from suppliers: 1, 20, 27, 49
+Facility 136 have products from suppliers: 1, 22, 27, 49
+Facility 137 have products from suppliers: 1, 22, 29, 49
+Facility 138 have products from suppliers: 1, 20, 29, 41
+Facility 139 have products from suppliers: 1, 15, 26, 27, 41
+Facility 140 have products from suppliers: 1, 15, 27, 41
+Facility 141 have products from suppliers: 0, 26, 29, 41
+Facility 142 have products from suppliers: 0, 15, 27, 41
+Facility 143 have products from suppliers: 1, 22, 26, 27, 41
+Facility 144 have products from suppliers: 8, 22, 27, 49
+Facility 145 have products from suppliers: 0, 15, 27, 49
+Facility 146 have products from suppliers: 1, 20, 27, 41
+Facility 147 have products from suppliers: 8, 26, 27, 43
+Facility 148 have products from suppliers: 1, 8, 15, 27, 42, 43
+Facility 149 have products from suppliers: 8, 20, 27, 49
+Facility 150 have products from suppliers: 8, 20, 27, 49
+Facility 151 have products from suppliers: 1, 15, 29, 43
+Facility 152 have products from suppliers: 1, 26, 29, 42
+Facility 153 have products from suppliers: 1, 15, 29, 40, 42
+Facility 154 have products from suppliers: 1, 15, 29, 39, 42
+Facility 155 have products from suppliers: 10, 20, 29, 40
+Facility 156 have products from suppliers: 10, 20, 29, 40
+Facility 157 have products from suppliers: 10, 22, 29, 40
+Facility 158 have products from suppliers: 1, 15, 29, 41
+Facility 159 have products from suppliers: 1, 20, 29, 41
+Facility 160 have products from suppliers: 10, 15, 29, 39
+Facility 161 have products from suppliers: 4, 22, 27, 41
+Facility 162 have products from suppliers: 0, 1, 26, 27, 41
+Facility 163 have products from suppliers: 1, 20, 27, 41
+Facility 164 have products from suppliers: 4, 15, 35, 49
+Facility 165 have products from suppliers: 1, 22, 27, 43
+Facility 166 have products from suppliers: 8, 15, 35, 49
+Facility 167 have products from suppliers: 8, 20, 27, 43
+Facility 168 have products from suppliers: 8, 22, 35, 49
+Facility 169 have products from suppliers: 8, 22, 35, 49
+Facility 170 have products from suppliers: 8, 15, 27, 49
+Facility 171 have products from suppliers: 8, 22, 27, 42
+Facility 172 have products from suppliers: 1, 10, 20, 29, 40
+Facility 173 have products from suppliers: 1, 15, 29, 40
+Facility 174 have products from suppliers: 10, 26, 29, 40
+Facility 175 have products from suppliers: 10, 26, 29, 40
+Facility 176 have products from suppliers: 10, 20, 29, 40
+Facility 177 have products from suppliers: 10, 22, 29, 39
+Facility 178 have products from suppliers: 1, 20, 29, 39
+Facility 179 have products from suppliers: 1, 4, 22, 27, 29, 41
+Facility 180 have products from suppliers: 4, 15, 35, 45
+Facility 181 have products from suppliers: 4, 22, 35, 49
+Facility 182 have products from suppliers: 1, 15, 35, 45
+Facility 183 have products from suppliers: 0, 22, 32, 47
+Facility 184 have products from suppliers: 0, 22, 32, 47
+Facility 185 have products from suppliers: 0, 22, 32, 47
+Facility 186 have products from suppliers: 0, 22, 32, 47
+Facility 187 have products from suppliers: 0, 22, 32, 47
+Facility 188 have products from suppliers: 0, 22, 32, 47
+Facility 189 have products from suppliers: 0, 22, 32, 47
+Facility 190 have products from suppliers: 0, 22, 32, 47
+Facility 191 have products from suppliers: 0, 22, 32, 47
+Facility 192 have products from suppliers: 12, 22, 37, 48
+Facility 193 have products from suppliers: 12, 22, 37, 48
+Facility 194 have products from suppliers: 12, 22, 37, 48
+Facility 195 have products from suppliers: 12, 22, 37, 48
+Facility 196 have products from suppliers: 12, 22, 37, 48
+Facility 197 have products from suppliers: 12, 22, 37, 48
+Facility 198 have products from suppliers: 12, 22, 37, 48
+Facility 199 have products from suppliers: 12, 22, 37, 48
+Facility 200 have products from suppliers: 12, 22, 37, 48
+Facility 201 have products from suppliers: 12, 22, 37, 48
+Facility 202 have products from suppliers: 12, 22, 37, 47
+Facility 203 have products from suppliers: 11, 22, 37, 47
+Facility 204 have products from suppliers: 12, 22, 37, 48
+Facility 205 have products from suppliers: 12, 22, 37, 48
+Facility 206 have products from suppliers: 12, 22, 37, 48
+Facility 207 have products from suppliers: 12, 22, 37, 48
+Facility 208 have products from suppliers: 12, 22, 37, 47
+Facility 209 have products from suppliers: 12, 22, 37, 47
+Facility 210 have products from suppliers: 12, 22, 37, 47
+Facility 211 have products from suppliers: 12, 22, 37, 47
+Facility 212 have products from suppliers: 0, 22, 37, 47
+Facility 213 have products from suppliers: 0, 22, 37, 47
+Facility 214 have products from suppliers: 0, 22, 37, 47
+Facility 215 have products from suppliers: 12, 22, 37, 47
+Facility 216 have products from suppliers: 12, 22, 37, 47
+Facility 217 have products from suppliers: 0, 22, 37, 47
+Facility 218 have products from suppliers: 0, 22, 37, 47
+Facility 219 have products from suppliers: 12, 22, 37, 47
+Facility 220 have products from suppliers: 11, 22, 37, 47
+Facility 221 have products from suppliers: 11, 22, 37, 47
+Facility 222 have products from suppliers: 11, 22, 37, 47
+Facility 223 have products from suppliers: 11, 22, 37, 47
+Facility 224 have products from suppliers: 0, 22, 32, 47
+Facility 225 have products from suppliers: 0, 22, 32, 47
+Facility 226 have products from suppliers: 0, 22, 32, 47
+Facility 227 have products from suppliers: 0, 22, 32, 47
+Facility 228 have products from suppliers: 0, 22, 32, 47
+Facility 229 have products from suppliers: 0, 22, 32, 47
+Facility 230 have products from suppliers: 0, 22, 32, 47
+Facility 231 have products from suppliers: 0, 22, 32, 47
+Facility 232 have products from suppliers: 0, 22, 32, 47
+Facility 233 have products from suppliers: 0, 22, 32, 47
+Facility 234 have products from suppliers: 0, 22, 32, 47
+Facility 235 have products from suppliers: 0, 22, 32, 47
+Facility 236 have products from suppliers: 0, 22, 32, 47
+Facility 237 have products from suppliers: 0, 22, 32, 47
+Facility 238 have products from suppliers: 0, 22, 32, 47
+Facility 239 have products from suppliers: 0, 22, 32, 47
+Facility 240 have products from suppliers: 12, 22, 37, 48
+Facility 241 have products from suppliers: 10, 15, 29, 39
+Facility 242 have products from suppliers: 10, 20, 29, 39
+Facility 243 have products from suppliers: 10, 20, 29, 39
+Facility 244 have products from suppliers: 10, 20, 29, 39
+Facility 245 have products from suppliers: 10, 15, 29, 38
+Facility 246 have products from suppliers: 10, 20, 29, 38
+Facility 247 have products from suppliers: 10, 26, 29, 38
+Facility 248 have products from suppliers: 10, 20, 29, 39
+Facility 249 have products from suppliers: 10, 22, 29, 39
+Facility 250 have products from suppliers: 10, 20, 29, 39
+Facility 251 have products from suppliers: 10, 26, 29, 39
+Facility 252 have products from suppliers: 10, 20, 29, 39
+Facility 253 have products from suppliers: 10, 20, 29, 39
+Facility 254 have products from suppliers: 10, 15, 29, 39
+Facility 255 have products from suppliers: 10, 15, 29, 39
+Facility 256 have products from suppliers: 10, 15, 29, 39
+Facility 257 have products from suppliers: 10, 15, 29, 39
+Facility 258 have products from suppliers: 10, 20, 29, 38
+Facility 259 have products from suppliers: 10, 15, 29, 38
+Facility 260 have products from suppliers: 10, 20, 29, 39
+Facility 261 have products from suppliers: 10, 15, 29, 39
+Facility 262 have products from suppliers: 10, 26, 29, 39
+Facility 263 have products from suppliers: 10, 20, 29, 39
+Facility 264 have products from suppliers: 10, 22, 29, 39
+Facility 265 have products from suppliers: 10, 26, 29, 39
+Facility 266 have products from suppliers: 10, 15, 20, 29, 39
+Facility 267 have products from suppliers: 10, 15, 35, 39
+Facility 268 have products from suppliers: 10, 22, 29, 39
+Facility 269 have products from suppliers: 10, 22, 27, 39
+Facility 270 have products from suppliers: 10, 15, 29, 39
+Facility 271 have products from suppliers: 0, 22, 37, 47
+Facility 272 have products from suppliers: 0, 22, 37, 47
+Facility 273 have products from suppliers: 0, 22, 37, 47
+Facility 274 have products from suppliers: 0, 22, 37, 47
+Facility 275 have products from suppliers: 0, 22, 37, 47
+Facility 276 have products from suppliers: 0, 22, 37, 47
+Facility 277 have products from suppliers: 0, 22, 37, 47
+Facility 278 have products from suppliers: 12, 22, 37, 47
+Facility 279 have products from suppliers: 12, 22, 37, 47
+Facility 280 have products from suppliers: 0, 22, 37, 47
+Facility 281 have products from suppliers: 0, 22, 37, 47
+Facility 282 have products from suppliers: 0, 22, 37, 47
+Facility 283 have products from suppliers: 0, 22, 37, 47
+Facility 284 have products from suppliers: 0, 22, 35, 47
+Facility 285 have products from suppliers: 0, 22, 35, 47
+Facility 286 have products from suppliers: 0, 22, 35, 47
+Facility 287 have products from suppliers: 6, 16, 31, 50
+Facility 288 have products from suppliers: 6, 16, 31, 50
+Facility 289 have products from suppliers: 9, 16, 31, 50
+Facility 290 have products from suppliers: 9, 23, 31, 50
+Facility 291 have products from suppliers: 6, 16, 31, 50
+Facility 292 have products from suppliers: 6, 16, 31, 50
+Facility 293 have products from suppliers: 6, 16, 31, 50
+Facility 294 have products from suppliers: 6, 16, 31, 44
+Facility 295 have products from suppliers: 6, 16, 31, 44
+Facility 296 have products from suppliers: 6, 16, 31, 44
+Facility 297 have products from suppliers: 9, 16, 31, 50
+Facility 298 have products from suppliers: 9, 16, 23, 31, 50
+Facility 299 have products from suppliers: 6, 23, 36, 50
+Facility 300 have products from suppliers: 6, 23, 31, 50
+Facility 301 have products from suppliers: 6, 14, 31, 44
+Facility 302 have products from suppliers: 6, 14, 31, 44
+Facility 303 have products from suppliers: 9, 26, 27, 52
+Facility 304 have products from suppliers: 6, 26, 29, 52
+Facility 305 have products from suppliers: 8, 15, 29, 52
+Facility 306 have products from suppliers: 8, 26, 27, 42, 52
+Facility 307 have products from suppliers: 8, 26, 27, 43
+Facility 308 have products from suppliers: 8, 26, 27, 35, 43, 49
+Facility 309 have products from suppliers: 9, 26, 35, 42
+Facility 310 have products from suppliers: 5, 10, 26, 27, 52
+Facility 311 have products from suppliers: 5, 15, 27, 38, 52
+Facility 312 have products from suppliers: 10, 22, 29, 38
+Facility 313 have products from suppliers: 5, 26, 35, 38
+Facility 314 have products from suppliers: 5, 25, 35, 38
+Facility 315 have products from suppliers: 0, 20, 29, 39
+Facility 316 have products from suppliers: 1, 20, 29, 39
+Facility 317 have products from suppliers: 1, 20, 29, 39
+Facility 318 have products from suppliers: 1, 20, 29, 41, 42
+Facility 319 have products from suppliers: 1, 15, 29, 39
+Facility 320 have products from suppliers: 1, 20, 29, 39
+Facility 321 have products from suppliers: 1, 15, 29, 41
+Facility 322 have products from suppliers: 1, 15, 29, 41
+Facility 323 have products from suppliers: 1, 15, 29, 39
+Facility 324 have products from suppliers: 0, 15, 29, 39
+Facility 325 have products from suppliers: 1, 20, 29, 39
+Facility 326 have products from suppliers: 10, 22, 29, 39
+Facility 327 have products from suppliers: 0, 22, 29, 39
+Facility 328 have products from suppliers: 1, 26, 29, 39
+Facility 329 have products from suppliers: 0, 20, 29, 39
+Facility 330 have products from suppliers: 0, 22, 29, 39
+Facility 331 have products from suppliers: 10, 22, 29, 39
+Facility 332 have products from suppliers: 10, 20, 29, 39
+Facility 333 have products from suppliers: 1, 20, 29, 39
+Facility 334 have products from suppliers: 1, 15, 35, 47
+Facility 335 have products from suppliers: 1, 15, 35, 47
+Facility 336 have products from suppliers: 1, 22, 35, 47
+Facility 337 have products from suppliers: 1, 26, 29, 39
+Facility 338 have products from suppliers: 1, 15, 35, 47
+Facility 339 have products from suppliers: 1, 15, 35, 47
+Facility 340 have products from suppliers: 1, 15, 35, 47
+Facility 341 have products from suppliers: 1, 22, 35, 47
+Facility 342 have products from suppliers: 0, 15, 35, 47
+Facility 343 have products from suppliers: 0, 15, 33, 47
+Facility 344 have products from suppliers: 0, 15, 35, 47
+Facility 345 have products from suppliers: 0, 15, 35, 47
+Facility 346 have products from suppliers: 1, 15, 35, 47
+Facility 347 have products from suppliers: 0, 15, 35, 47
+Facility 348 have products from suppliers: 0, 15, 35, 47
+Facility 349 have products from suppliers: 0, 15, 35, 47
+Facility 350 have products from suppliers: 0, 15, 35, 47
+Facility 351 have products from suppliers: 0, 15, 35, 47
+Facility 352 have products from suppliers: 0, 15, 35, 47
+Facility 353 have products from suppliers: 0, 15, 33, 47
+Facility 354 have products from suppliers: 0, 15, 33, 47
+Facility 355 have products from suppliers: 0, 15, 33, 47
+Facility 356 have products from suppliers: 0, 15, 33, 47
+Facility 357 have products from suppliers: 0, 15, 33, 47
+Facility 358 have products from suppliers: 0, 15, 33, 47
+Facility 359 have products from suppliers: 0, 15, 33, 47
+Facility 360 have products from suppliers: 0, 15, 33, 47
+Facility 361 have products from suppliers: 0, 15, 33, 47
+Facility 362 have products from suppliers: 0, 15, 33, 47
+Facility 363 have products from suppliers: 0, 15, 33, 47
+Facility 364 have products from suppliers: 0, 15, 35, 47
+Facility 365 have products from suppliers: 0, 15, 35, 47
+Facility 366 have products from suppliers: 0, 15, 35, 47
+Facility 367 have products from suppliers: 2, 15, 35, 47
+Facility 368 have products from suppliers: 0, 15, 35, 47
+Facility 369 have products from suppliers: 0, 15, 35, 47
+Facility 370 have products from suppliers: 0, 15, 35, 47
+Facility 371 have products from suppliers: 0, 15, 35, 47
+Facility 372 have products from suppliers: 0, 15, 35, 47
+Facility 373 have products from suppliers: 0, 15, 35, 47
+Facility 374 have products from suppliers: 0, 15, 35, 47
+Facility 375 have products from suppliers: 2, 15, 35, 47
+Facility 376 have products from suppliers: 2, 15, 35, 47
+Facility 377 have products from suppliers: 2, 15, 35, 47
+Facility 378 have products from suppliers: 0, 15, 35, 47
+Facility 379 have products from suppliers: 0, 15, 35, 47
+Facility 380 have products from suppliers: 0, 15, 35, 47
+Facility 381 have products from suppliers: 2, 15, 35, 47
+Facility 382 have products from suppliers: 8, 21, 36, 50
+Facility 383 have products from suppliers: 6, 23, 36, 50
+Facility 384 have products from suppliers: 8, 21, 36, 50
+Facility 385 have products from suppliers: 8, 21, 36, 50
+Facility 386 have products from suppliers: 8, 21, 36, 50
+Facility 387 have products from suppliers: 8, 21, 36, 50
+Facility 388 have products from suppliers: 8, 21, 36, 50
+Facility 389 have products from suppliers: 6, 21, 36, 50
+Facility 390 have products from suppliers: 0, 21, 36, 50
+Facility 391 have products from suppliers: 6, 14, 28, 44
+Facility 392 have products from suppliers: 6, 14, 28, 44
+Facility 393 have products from suppliers: 6, 14, 28, 44
+Facility 394 have products from suppliers: 6, 14, 28, 44
+Facility 395 have products from suppliers: 6, 23, 28, 44
+Facility 396 have products from suppliers: 0, 21, 36, 47
+Facility 397 have products from suppliers: 0, 21, 35, 50
+Facility 398 have products from suppliers: 0, 22, 35, 47
+Facility 399 have products from suppliers: 0, 22, 35, 47
+Facility 400 have products from suppliers: 0, 22, 35, 47
+Facility 401 have products from suppliers: 0, 22, 37, 47
+Facility 402 have products from suppliers: 11, 22, 37, 47
+Facility 403 have products from suppliers: 11, 22, 37, 47
+Facility 404 have products from suppliers: 11, 22, 37, 47
+Facility 405 have products from suppliers: 11, 22, 37, 47
+Facility 406 have products from suppliers: 11, 22, 37, 47
+Facility 407 have products from suppliers: 11, 22, 37, 47
+Facility 408 have products from suppliers: 0, 22, 35, 47
+Facility 409 have products from suppliers: 0, 22, 35, 47
+Facility 410 have products from suppliers: 0, 22, 37, 47
+Facility 411 have products from suppliers: 0, 22, 35, 47
+Facility 412 have products from suppliers: 0, 22, 37, 47
+Facility 413 have products from suppliers: 0, 22, 37, 47
+Facility 414 have products from suppliers: 2, 22, 35, 47
+Facility 415 have products from suppliers: 2, 15, 35, 47
+Facility 416 have products from suppliers: 2, 22, 35, 47
+Facility 417 have products from suppliers: 0, 22, 32, 47
+Facility 418 have products from suppliers: 0, 22, 32, 47
+Facility 419 have products from suppliers: 0, 22, 32, 47
+Facility 420 have products from suppliers: 0, 22, 32, 47
+Facility 421 have products from suppliers: 0, 22, 32, 47
+Facility 422 have products from suppliers: 
+Facility 423 have products from suppliers: 0, 15, 35, 47
+Facility 424 have products from suppliers: 0, 15, 35, 47
+Facility 425 have products from suppliers: 7, 24, 34, 51
+Facility 426 have products from suppliers: 7, 24, 34, 51
+Facility 427 have products from suppliers: 7, 24, 34, 51
+Facility 428 have products from suppliers: 7, 24, 34, 51
+Facility 429 have products from suppliers: 7, 24, 34, 51
+Facility 430 have products from suppliers: 7, 24, 34, 51
+Facility 431 have products from suppliers: 7, 24, 34, 38
+Facility 432 have products from suppliers: 7, 24, 34, 51
+Facility 433 have products from suppliers: 7, 24, 34, 38
+Facility 434 have products from suppliers: 7, 24, 34, 51
+Facility 435 have products from suppliers: 7, 24, 34, 51
+Facility 436 have products from suppliers: 7, 24, 34, 51
+Facility 437 have products from suppliers: 7, 24, 34, 51
+Facility 438 have products from suppliers: 7, 24, 34, 51
+Facility 439 have products from suppliers: 7, 24, 34, 51
+
+Facility 0 open to serve customers: 0
+Facility 1 open to serve customers: 1
+Facility 2 open to serve customers: 2
+Facility 3 open to serve customers: 3
+Facility 4 open to serve customers: 4
+Facility 5 open to serve customers: 5
+Facility 6 open to serve customers: 6
+Facility 7 open to serve customers: 7
+Facility 8 open to serve customers: 8
+Facility 9 open to serve customers: 9
+Facility 10 open to serve customers: 10
+Facility 11 open to serve customers: 11
+Facility 12 open to serve customers: 12
+Facility 13 open to serve customers: 13
+Facility 14 open to serve customers: 14
+Facility 15 open to serve customers: 15
+Facility 16 open to serve customers: 16
+Facility 17 open to serve customers: 17
+Facility 18 open to serve customers: 18
+Facility 19 open to serve customers: 19
+Facility 20 open to serve customers: 20
+Facility 21 open to serve customers: 21
+Facility 22 open to serve customers: 22
+Facility 23 open to serve customers: 23
+Facility 24 open to serve customers: 24
+Facility 25 open to serve customers: 25
+Facility 26 open to serve customers: 26
+Facility 27 open to serve customers: 27
+Facility 28 open to serve customers: 28
+Facility 29 open to serve customers: 29
+Facility 30 open to serve customers: 30
+Facility 31 open to serve customers: 31
+Facility 32 open to serve customers: 32
+Facility 33 open to serve customers: 33
+Facility 34 open to serve customers: 34
+Facility 35 open to serve customers: 35
+Facility 36 open to serve customers: 36
+Facility 37 open to serve customers: 37
+Facility 38 open to serve customers: 38
+Facility 39 open to serve customers: 39
+Facility 40 open to serve customers: 40
+Facility 41 open to serve customers: 41
+Facility 42 open to serve customers: 42
+Facility 43 open to serve customers: 43
+Facility 44 open to serve customers: 44
+Facility 45 open to serve customers: 45
+Facility 46 open to serve customers: 46
+Facility 47 open to serve customers: 47
+Facility 48 open to serve customers: 48
+Facility 49 open to serve customers: 49
+Facility 50 open to serve customers: 50
+Facility 51 open to serve customers: 51
+Facility 52 open to serve customers: 52
+Facility 53 open to serve customers: 53
+Facility 54 open to serve customers: 54
+Facility 55 open to serve customers: 55
+Facility 56 open to serve customers: 56
+Facility 57 open to serve customers: 57
+Facility 58 open to serve customers: 58
+Facility 59 open to serve customers: 59
+Facility 60 open to serve customers: 60
+Facility 61 open to serve customers: 61
+Facility 62 open to serve customers: 62
+Facility 63 open to serve customers: 63
+Facility 64 open to serve customers: 64
+Facility 65 open to serve customers: 65
+Facility 66 open to serve customers: 66
+Facility 67 open to serve customers: 67
+Facility 68 open to serve customers: 68
+Facility 69 open to serve customers: 69
+Facility 70 open to serve customers: 70
+Facility 71 open to serve customers: 71
+Facility 72 open to serve customers: 72
+Facility 73 open to serve customers: 73
+Facility 74 open to serve customers: 74
+Facility 75 open to serve customers: 75
+Facility 76 open to serve customers: 76
+Facility 77 open to serve customers: 77
+Facility 78 open to serve customers: 78
+Facility 79 open to serve customers: 79
+Facility 80 open to serve customers: 80
+Facility 81 open to serve customers: 81
+Facility 82 open to serve customers: 82
+Facility 83 open to serve customers: 83
+Facility 84 open to serve customers: 84
+Facility 85 open to serve customers: 85
+Facility 86 open to serve customers: 86
+Facility 87 open to serve customers: 87
+Facility 88 open to serve customers: 88
+Facility 89 open to serve customers: 89
+Facility 90 open to serve customers: 90
+Facility 91 open to serve customers: 91
+Facility 92 open to serve customers: 92
+Facility 93 open to serve customers: 93
+Facility 94 open to serve customers: 94
+Facility 95 open to serve customers: 95
+Facility 96 open to serve customers: 96
+Facility 97 open to serve customers: 97
+Facility 98 open to serve customers: 98
+Facility 99 open to serve customers: 99
+Facility 100 open to serve customers: 100
+Facility 101 open to serve customers: 101
+Facility 102 open to serve customers: 102
+Facility 103 open to serve customers: 103
+Facility 104 open to serve customers: 104
+Facility 105 open to serve customers: 105
+Facility 106 open to serve customers: 106
+Facility 107 open to serve customers: 107
+Facility 108 open to serve customers: 108
+Facility 109 open to serve customers: 109
+Facility 110 open to serve customers: 110
+Facility 111 open to serve customers: 111
+Facility 112 open to serve customers: 112
+Facility 113 open to serve customers: 113
+Facility 114 open to serve customers: 114
+Facility 115 open to serve customers: 115
+Facility 116 open to serve customers: 116
+Facility 117 open to serve customers: 117
+Facility 118 open to serve customers: 118
+Facility 119 open to serve customers: 119
+Facility 120 open to serve customers: 120
+Facility 121 open to serve customers: 121
+Facility 122 open to serve customers: 122
+Facility 123 open to serve customers: 123
+Facility 124 open to serve customers: 124
+Facility 125 open to serve customers: 125
+Facility 126 open to serve customers: 126
+Facility 127 open to serve customers: 127
+Facility 128 open to serve customers: 128
+Facility 129 open to serve customers: 129
+Facility 130 open to serve customers: 130
+Facility 131 open to serve customers: 131
+Facility 132 open to serve customers: 132
+Facility 133 open to serve customers: 133
+Facility 134 open to serve customers: 134
+Facility 135 open to serve customers: 135
+Facility 136 open to serve customers: 136
+Facility 137 open to serve customers: 137
+Facility 138 open to serve customers: 138
+Facility 139 open to serve customers: 139
+Facility 140 open to serve customers: 140
+Facility 141 open to serve customers: 141
+Facility 142 open to serve customers: 142
+Facility 143 open to serve customers: 143
+Facility 144 open to serve customers: 144
+Facility 145 open to serve customers: 145
+Facility 146 open to serve customers: 146
+Facility 147 open to serve customers: 147
+Facility 148 open to serve customers: 148
+Facility 149 open to serve customers: 149
+Facility 150 open to serve customers: 150
+Facility 151 open to serve customers: 151
+Facility 152 open to serve customers: 152
+Facility 153 open to serve customers: 153
+Facility 154 open to serve customers: 154
+Facility 155 open to serve customers: 155
+Facility 156 open to serve customers: 156
+Facility 157 open to serve customers: 157
+Facility 158 open to serve customers: 158
+Facility 159 open to serve customers: 159
+Facility 160 open to serve customers: 160
+Facility 161 open to serve customers: 161
+Facility 162 open to serve customers: 162
+Facility 163 open to serve customers: 163
+Facility 164 open to serve customers: 164
+Facility 165 open to serve customers: 165
+Facility 166 open to serve customers: 166
+Facility 167 open to serve customers: 167
+Facility 168 open to serve customers: 168
+Facility 169 open to serve customers: 169
+Facility 170 open to serve customers: 170
+Facility 171 open to serve customers: 171
+Facility 172 open to serve customers: 172
+Facility 173 open to serve customers: 173
+Facility 174 open to serve customers: 174
+Facility 175 open to serve customers: 175
+Facility 176 open to serve customers: 176
+Facility 177 open to serve customers: 177
+Facility 178 open to serve customers: 178
+Facility 179 open to serve customers: 179
+Facility 180 open to serve customers: 180
+Facility 181 open to serve customers: 181
+Facility 182 open to serve customers: 182
+Facility 183 open to serve customers: 183
+Facility 184 open to serve customers: 184
+Facility 185 open to serve customers: 185
+Facility 186 open to serve customers: 186
+Facility 187 open to serve customers: 187
+Facility 188 open to serve customers: 188
+Facility 189 open to serve customers: 189
+Facility 190 open to serve customers: 190
+Facility 191 open to serve customers: 191
+Facility 192 open to serve customers: 192
+Facility 193 open to serve customers: 193
+Facility 194 open to serve customers: 194
+Facility 195 open to serve customers: 195
+Facility 196 open to serve customers: 196
+Facility 197 open to serve customers: 197
+Facility 198 open to serve customers: 198
+Facility 199 open to serve customers: 199
+Facility 200 open to serve customers: 200
+Facility 201 open to serve customers: 201
+Facility 202 open to serve customers: 202
+Facility 203 open to serve customers: 203
+Facility 204 open to serve customers: 204
+Facility 205 open to serve customers: 205
+Facility 206 open to serve customers: 206
+Facility 207 open to serve customers: 207
+Facility 208 open to serve customers: 208
+Facility 209 open to serve customers: 209
+Facility 210 open to serve customers: 210
+Facility 211 open to serve customers: 211
+Facility 212 open to serve customers: 212
+Facility 213 open to serve customers: 213
+Facility 214 open to serve customers: 214
+Facility 215 open to serve customers: 215
+Facility 216 open to serve customers: 216
+Facility 217 open to serve customers: 217
+Facility 218 open to serve customers: 218
+Facility 219 open to serve customers: 219
+Facility 220 open to serve customers: 220
+Facility 221 open to serve customers: 221
+Facility 222 open to serve customers: 222
+Facility 223 open to serve customers: 223
+Facility 224 open to serve customers: 224
+Facility 225 open to serve customers: 225
+Facility 226 open to serve customers: 226
+Facility 227 open to serve customers: 227
+Facility 228 open to serve customers: 228
+Facility 229 open to serve customers: 229
+Facility 230 open to serve customers: 230
+Facility 231 open to serve customers: 231
+Facility 232 open to serve customers: 232
+Facility 233 open to serve customers: 233
+Facility 234 open to serve customers: 234
+Facility 235 open to serve customers: 235
+Facility 236 open to serve customers: 236
+Facility 237 open to serve customers: 237
+Facility 238 open to serve customers: 238
+Facility 239 open to serve customers: 239
+Facility 240 open to serve customers: 240
+Facility 241 open to serve customers: 241
+Facility 242 open to serve customers: 242
+Facility 243 open to serve customers: 243
+Facility 244 open to serve customers: 244
+Facility 245 open to serve customers: 245
+Facility 246 open to serve customers: 246
+Facility 247 open to serve customers: 247
+Facility 248 open to serve customers: 248
+Facility 249 open to serve customers: 249
+Facility 250 open to serve customers: 250
+Facility 251 open to serve customers: 251
+Facility 252 open to serve customers: 252
+Facility 253 open to serve customers: 253
+Facility 254 open to serve customers: 254
+Facility 255 open to serve customers: 255
+Facility 256 open to serve customers: 256
+Facility 257 open to serve customers: 257
+Facility 258 open to serve customers: 258
+Facility 259 open to serve customers: 259
+Facility 260 open to serve customers: 260
+Facility 261 open to serve customers: 261
+Facility 262 open to serve customers: 262
+Facility 263 open to serve customers: 263
+Facility 264 open to serve customers: 264
+Facility 265 open to serve customers: 265
+Facility 266 open to serve customers: 266
+Facility 267 open to serve customers: 267
+Facility 268 open to serve customers: 268
+Facility 269 open to serve customers: 269
+Facility 270 open to serve customers: 270
+Facility 271 open to serve customers: 271
+Facility 272 open to serve customers: 272
+Facility 273 open to serve customers: 273
+Facility 274 open to serve customers: 274
+Facility 275 open to serve customers: 275
+Facility 276 open to serve customers: 276
+Facility 277 open to serve customers: 277
+Facility 278 open to serve customers: 278
+Facility 279 open to serve customers: 279
+Facility 280 open to serve customers: 280
+Facility 281 open to serve customers: 281
+Facility 282 open to serve customers: 282
+Facility 283 open to serve customers: 283
+Facility 284 open to serve customers: 284
+Facility 285 open to serve customers: 285
+Facility 286 open to serve customers: 286
+Facility 287 open to serve customers: 287
+Facility 288 open to serve customers: 288
+Facility 289 open to serve customers: 289
+Facility 290 open to serve customers: 290
+Facility 291 open to serve customers: 291
+Facility 292 open to serve customers: 292
+Facility 293 open to serve customers: 293
+Facility 294 open to serve customers: 294
+Facility 295 open to serve customers: 295
+Facility 296 open to serve customers: 296
+Facility 297 open to serve customers: 297
+Facility 298 open to serve customers: 298
+Facility 299 open to serve customers: 299
+Facility 300 open to serve customers: 300
+Facility 301 open to serve customers: 301
+Facility 302 open to serve customers: 302
+Facility 303 open to serve customers: 303
+Facility 304 open to serve customers: 304
+Facility 305 open to serve customers: 305
+Facility 306 open to serve customers: 306
+Facility 307 open to serve customers: 307
+Facility 308 open to serve customers: 308
+Facility 309 open to serve customers: 309
+Facility 310 open to serve customers: 310
+Facility 311 open to serve customers: 311
+Facility 312 open to serve customers: 312
+Facility 313 open to serve customers: 313
+Facility 314 open to serve customers: 314
+Facility 315 open to serve customers: 315
+Facility 316 open to serve customers: 316
+Facility 317 open to serve customers: 317
+Facility 318 open to serve customers: 318
+Facility 319 open to serve customers: 319
+Facility 320 open to serve customers: 320
+Facility 321 open to serve customers: 321
+Facility 322 open to serve customers: 322
+Facility 323 open to serve customers: 323
+Facility 324 open to serve customers: 324
+Facility 325 open to serve customers: 325
+Facility 326 open to serve customers: 326
+Facility 327 open to serve customers: 327
+Facility 328 open to serve customers: 328
+Facility 329 open to serve customers: 329
+Facility 330 open to serve customers: 330
+Facility 331 open to serve customers: 331
+Facility 332 open to serve customers: 332
+Facility 333 open to serve customers: 333
+Facility 334 open to serve customers: 334
+Facility 335 open to serve customers: 335
+Facility 336 open to serve customers: 336
+Facility 337 open to serve customers: 337
+Facility 338 open to serve customers: 338
+Facility 339 open to serve customers: 339
+Facility 340 open to serve customers: 340
+Facility 341 open to serve customers: 341
+Facility 342 open to serve customers: 342
+Facility 343 open to serve customers: 343
+Facility 344 open to serve customers: 344
+Facility 345 open to serve customers: 345
+Facility 346 open to serve customers: 346
+Facility 347 open to serve customers: 347
+Facility 348 open to serve customers: 348
+Facility 349 open to serve customers: 349
+Facility 350 open to serve customers: 350
+Facility 351 open to serve customers: 351
+Facility 352 open to serve customers: 352
+Facility 353 open to serve customers: 353
+Facility 354 open to serve customers: 354
+Facility 355 open to serve customers: 355
+Facility 356 open to serve customers: 356
+Facility 357 open to serve customers: 357
+Facility 358 open to serve customers: 358
+Facility 359 open to serve customers: 359
+Facility 360 open to serve customers: 360
+Facility 361 open to serve customers: 361
+Facility 362 open to serve customers: 362
+Facility 363 open to serve customers: 363
+Facility 364 open to serve customers: 364
+Facility 365 open to serve customers: 365
+Facility 366 open to serve customers: 366
+Facility 367 open to serve customers: 367
+Facility 368 open to serve customers: 368
+Facility 369 open to serve customers: 369
+Facility 370 open to serve customers: 370
+Facility 371 open to serve customers: 371
+Facility 372 open to serve customers: 372
+Facility 373 open to serve customers: 373
+Facility 374 open to serve customers: 374
+Facility 375 open to serve customers: 375
+Facility 376 open to serve customers: 376
+Facility 377 open to serve customers: 377
+Facility 378 open to serve customers: 378
+Facility 379 open to serve customers: 379
+Facility 380 open to serve customers: 380
+Facility 381 open to serve customers: 381
+Facility 382 open to serve customers: 382
+Facility 383 open to serve customers: 383
+Facility 384 open to serve customers: 384
+Facility 385 open to serve customers: 385
+Facility 386 open to serve customers: 386
+Facility 387 open to serve customers: 387
+Facility 388 open to serve customers: 388
+Facility 389 open to serve customers: 389
+Facility 390 open to serve customers: 390
+Facility 391 open to serve customers: 391
+Facility 392 open to serve customers: 392
+Facility 393 open to serve customers: 393
+Facility 394 open to serve customers: 394
+Facility 395 open to serve customers: 395
+Facility 396 open to serve customers: 396
+Facility 397 open to serve customers: 397
+Facility 398 open to serve customers: 398
+Facility 399 open to serve customers: 399
+Facility 400 open to serve customers: 400
+Facility 401 open to serve customers: 401
+Facility 402 open to serve customers: 402
+Facility 403 open to serve customers: 403
+Facility 404 open to serve customers: 404
+Facility 405 open to serve customers: 405
+Facility 406 open to serve customers: 406
+Facility 407 open to serve customers: 407
+Facility 408 open to serve customers: 408
+Facility 409 open to serve customers: 409
+Facility 410 open to serve customers: 410
+Facility 411 open to serve customers: 411
+Facility 412 open to serve customers: 412
+Facility 413 open to serve customers: 413
+Facility 414 open to serve customers: 414
+Facility 415 open to serve customers: 415
+Facility 416 open to serve customers: 416
+Facility 417 open to serve customers: 417
+Facility 418 open to serve customers: 418
+Facility 419 open to serve customers: 419
+Facility 420 open to serve customers: 420
+Facility 421 open to serve customers: 421
+Facility 422 open to serve customers: 422
+Facility 423 open to serve customers: 423
+Facility 424 open to serve customers: 424
+Facility 425 open to serve customers: 425
+Facility 426 open to serve customers: 426
+Facility 427 open to serve customers: 427
+Facility 428 open to serve customers: 428
+Facility 429 open to serve customers: 429
+Facility 430 open to serve customers: 430
+Facility 431 open to serve customers: 431
+Facility 432 open to serve customers: 432
+Facility 433 open to serve customers: 433
+Facility 434 open to serve customers: 434
+Facility 435 open to serve customers: 435
+Facility 436 open to serve customers: 436
+Facility 437 open to serve customers: 437
+Facility 438 open to serve customers: 438
+Facility 439 open to serve customers: 439
+
+Penalty applied to customer: 
+
+Total cost is: 4595059044.828809
+Facility building cost: 983926000.0
+Transportation cost: 3611133044.829
+Penalty: 0
+*******************End Solution*******************

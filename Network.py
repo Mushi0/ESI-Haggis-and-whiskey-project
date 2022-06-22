@@ -11,7 +11,7 @@ class network:
         self.__set_index_sets()
 
     def __set_index_sets(self):
-        self.customer_index = range(self.nb_customers)
+        self.customers_index = range(self.nb_customers)
         self.candidates_index = range(self.nb_candidates)
         self.suppliers_index = range(self.nb_suppliers)
         self.food_index = range(self.nb_food)
