@@ -33,13 +33,13 @@ def read_convert(file_name, easting = 'X (Easting)', northing = 'Y (Northing)', 
 def plot_map(data, save_name = 'map.png'):
     geometry = [Point(xy) for xy in zip(data['lat'], data['lon'])]
 
-    gdf = gpd.GeoDataFrame(data['District ID'], geometry = geometry)
+    gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
 
     gdf = gdf.set_crs(epsg = 4326, inplace=True)
     gdf = gdf.to_crs(epsg = 3857)
 
     plt.figure()
-    ax = gdf.plot(figsize = (16, 8))
+    ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
     ctx.add_basemap(ax)
     # crs = {'init': 'epsg:4326'}
     # ctx.add_basemap(ax, crs = crs)
@@ -49,8 +49,8 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     geometry = [Point(xy) for xy in zip(data['lat'], data['lon'])]
     geometry_chosen = [Point(xy) for xy in zip(data_chosen['lat'], data_chosen['lon'])]
 
-    gdf = gpd.GeoDataFrame(data['District ID'], geometry = geometry)
-    gdf_chosen = gpd.GeoDataFrame(data_chosen['District ID'], geometry = geometry_chosen)
+    gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
+    gdf_chosen = gpd.GeoDataFrame(data_chosen['total_demand'], geometry = geometry_chosen)
 
     gdf = gdf.set_crs(epsg = 4326, inplace=True)
     gdf = gdf.to_crs(epsg = 3857)
@@ -58,11 +58,9 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     gdf_chosen = gdf_chosen.to_crs(epsg = 3857)
 
     plt.figure()
-    ax = gdf.plot(figsize = (16, 8))
-    gdf_chosen.plot(ax = ax, color = 'orange')
+    ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
+    gdf_chosen.plot(ax = ax, column = 'total_demand', cmap = 'autumn', legend = True)
     ctx.add_basemap(ax)
-    # crs = {'init': 'epsg:4326'}
-    # ctx.add_basemap(ax, crs = crs)
     plt.savefig(save_name)
 
 with open('log.txt') as f:
@@ -70,7 +68,9 @@ with open('log.txt') as f:
 chosen = re.findall(r'Facility (.*?) open to serve customers: ', log_data)
 chosen = [int(i) for i in chosen]
 
-data = read_convert('Data\Potential Locations.xlsx', easting = 'X (Easting)', northing = 'Y (Northing)', lat = 'lat', lon = 'lon')
+# data = read_convert('Data\Potential Locations.xlsx', easting = 'X (Easting)', northing = 'Y (Northing)', lat = 'lat', lon = 'lon')
+data = read_convert('Data\Postcode Districts.xlsx', easting = 'X (Easting)', northing = 'Y (Northing)', lat = 'lat', lon = 'lon')
+data['total_demand'] = data[['Group 1', 'Group 2', 'Group 3', 'Group 4']].sum(axis = 1)
 data_chosen = data.iloc[chosen]
 
 plot_map(data)
