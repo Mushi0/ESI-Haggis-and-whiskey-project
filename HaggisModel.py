@@ -69,7 +69,7 @@ class haggis_model:
             print("No solution found.")
         print("*******************End Solution*******************")
 
-    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 600, mip_gap = 0.01, json = False, clean_before_solve = True):
+    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 3600, mip_gap = 0.01, json = False, clean_before_solve = True):
         self.mdl = Model()
 
         # self.M = np.max(self.network.dis_suppliers_districts)
@@ -82,8 +82,8 @@ class haggis_model:
         # self.U = self.mdl.binary_var_list(self.network.customers_index, name = 'U')
         self.U = self.mdl.continuous_var_list(self.network.customers_index, name = 'U')
         self.z = self.mdl.continuous_var_matrix(self.network.suppliers_index, self.network.candidates_index, name = 'z')
-        # self.n = self.mdl.continuous_var_matrix(self.network.suppliers_index, self.network.candidates_index, name = 'n')
-        # self.m = self.mdl.continuous_var_matrix(self.network.candidates_index, self.network.customers_index, name = 'm')
+        # self.n = self.mdl.integer_var_matrix(self.network.suppliers_index, self.network.candidates_index, name = 'n')
+        # self.m = self.mdl.integer_var_matrix(self.network.candidates_index, self.network.customers_index, name = 'm')
 
         # Add constraints
         # One customer is assigned to only one facility
@@ -109,6 +109,14 @@ class haggis_model:
         for i in self.network.candidates_index:
             for j in self.network.customers_index:
                 self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
+        # # number of vans
+        # for i in self.network.candidates_index:
+        #     for k in self.network.suppliers_index:
+        #         self.mdl.add(self.n[k, i]*self.network.capacity_suppliers[k] >= self.z[k, i]*0.001)
+        # # number of trucks and lorries
+        # for i in self.network.candidates_index:
+        #     for j in self.network.customers_index:
+        #         self.mdl.add(self.m[i, j]*self.network.capacity_vans >= self.mdl.sum(self.x[i, j]*self.network.demand[j, t] for j in self.network.food_index)*0.001)
         # # linking constraint for penalty
         # # find the nearest open facility
         # for i in self.network.candidates_index:
@@ -129,11 +137,18 @@ class haggis_model:
                         self.network.dis_districts_districts[i_prime, j] < self.network.dis_districts_districts[i, j]))
 
         self.total_cost = self.mdl.scal_prod(self.y, self.network.fixed_cost) + \
-                        self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
-                        for i in self.network.candidates_index for j in self.network.customers_index for t in self.network.food_index) + \
-                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
-                        for k in self.network.suppliers_index for i in self.network.candidates_index) + \
-                        self.time_horizon*self.network.penalty*sum(self.U[j] for j in self.network.customers_index)
+                        self.time_horizon*self.network.cost_customers*sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
+                        for i in self.network.candidates_index for j in self.network.customers_index for t in self.network.food_index)*0.001 + \
+                        self.time_horizon*sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
+                        for k in self.network.suppliers_index for i in self.network.candidates_index)*0.001 + \
+                        self.network.penalty*sum(self.U[j] for j in self.network.customers_index)
+                        # self.network.penalty*sum(self.U[j] for j in self.network.customers_index) + \
+                        # self.time_horizon*sum(self.network.cost_customers*self.network.weight_vans*self.m[i, j]*\
+                        # (self.network.dis_districts_districts[i, j] + self.network.dis_districts_districts[i, j]) \
+                        # for i in self.network.candidates_index for j in self.network.customers_index) + \
+                        # self.time_horizon*sum(self.network.cost_suppliers[k]*self.network.weight_suppliers[k]*self.n[k, i]*\
+                        # (self.network.dis_suppliers_districts[k, i] + self.network.dis_suppliers_districts[k, i]) \
+                        # for k in self.network.suppliers_index for i in self.network.candidates_index)
 
         # Minimize total cost
         self.mdl.minimize(self.total_cost)
@@ -168,11 +183,18 @@ class haggis_model:
                 'best bound': [self.mdl.solve_details.best_bound],
                 'objective': [self.msol[self.total_cost]],
                 'Facility building cost': [sum([self.msol[self.y[i]]*self.network.fixed_cost[i] for i in self.network.candidates_index])],
-                'Transportation cost': [self.time_horizon*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*\
+                'Transportation cost': [self.time_horizon*self.network.cost_customers*sum(self.network.dis_districts_districts[i, j]*\
                         self.network.demand[j, t]*self.msol[self.x[i, j]] for i in self.network.candidates_index \
-                        for j in self.network.customers_index for t in self.network.food_index) + \
-                        self.time_horizon*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.msol[self.z[k, i]] \
-                        for k in self.network.suppliers_index for i in self.network.candidates_index)],
+                        for j in self.network.customers_index for t in self.network.food_index)*0.001 + \
+                        self.time_horizon*sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.msol[self.z[k, i]] \
+                        for k in self.network.suppliers_index for i in self.network.candidates_index)*0.001],
+                        # for k in self.network.suppliers_index for i in self.network.candidates_index) + \
+                        # self.time_horizon*sum(self.network.cost_customers*self.network.weight_vans*self.msol[self.m[i, j]]*\
+                        # (self.network.dis_districts_districts[i, j] + self.network.dis_districts_districts[i, j]) \
+                        # for i in self.network.candidates_index for j in self.network.customers_index) + \
+                        # self.time_horizon*sum(self.network.cost_suppliers[k]*self.network.weight_suppliers[k]*self.msol[self.n[k, i]]*\
+                        # (self.network.dis_suppliers_districts[k, i] + self.network.dis_suppliers_districts[k, i]) \
+                        # for k in self.network.suppliers_index for i in self.network.candidates_index)],
                 'Penalty': [self.network.penalty*sum(self.msol[self.U[j]] for j in self.network.customers_index)]})
         # if the model is infeasible
         else:

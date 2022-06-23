@@ -43,6 +43,12 @@ class network:
         for i, t in enumerate(np.array(Suppliers['Product group'] - 1)):
             self.type[i, t] = 1
         self.penalty = 50000
+        # self.weight_vans = 1.5
+        # vihecle_weight = [0, 15, 5]
+        # self.weight_suppliers = np.array([vihecle_weight[i] for i in Suppliers['Vehicle Type (1=18t, 2=7.5t)']])
+        # self.capacity_vans = 3.5
+        # vihecle_capacity = [0, 18, 7.5]
+        # self.capacity_suppliers = np.array([vihecle_capacity[i] for i in Suppliers['Vehicle Type (1=18t, 2=7.5t)']])
         self.set_size(len(Customers), len(Candidates), len(Suppliers), self.demand.shape[1])
 
     # def print_network(self):
