@@ -33,25 +33,17 @@ def read_convert(file_name, easting = 'X (Easting)', northing = 'Y (Northing)', 
 def plot_map(data, save_name = 'map.png'):
     geometry = [Point(xy) for xy in zip(data['lat'], data['lon'])]
 
-<<<<<<< HEAD
     # gdf = gpd.GeoDataFrame(data['District ID'], geometry = geometry)
     # gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
-    gdf = gpd.GeoDataFrame(data['capacity_used'], geometry = geometry)
-=======
-    gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
->>>>>>> ed8707c0ff1d12b5833a8b625121b16556ccfc4d
+    gdf = gpd.GeoDataFrame(data['capacity_not_used'], geometry = geometry)
 
     gdf = gdf.set_crs(epsg = 4326, inplace=True)
     gdf = gdf.to_crs(epsg = 3857)
 
     plt.figure()
-<<<<<<< HEAD
     ax = gdf.plot(figsize = (16, 8))
     # ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
     # ax = gdf.plot(column = 'capacity_used', figsize = (16, 8), cmap = 'winter', legend = True)
-=======
-    ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
->>>>>>> ed8707c0ff1d12b5833a8b625121b16556ccfc4d
     ctx.add_basemap(ax)
     # crs = {'init': 'epsg:4326'}
     # ctx.add_basemap(ax, crs = crs)
@@ -61,17 +53,12 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     geometry = [Point(xy) for xy in zip(data['lat'], data['lon'])]
     geometry_chosen = [Point(xy) for xy in zip(data_chosen['lat'], data_chosen['lon'])]
 
-<<<<<<< HEAD
     # gdf = gpd.GeoDataFrame(data['District ID'], geometry = geometry)
     # gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
-    gdf = gpd.GeoDataFrame(data['capacity_used'], geometry = geometry)
+    gdf = gpd.GeoDataFrame(data['capacity_not_used'], geometry = geometry)
     # gdf_chosen = gpd.GeoDataFrame(data_chosen['District ID'], geometry = geometry_chosen)
     # gdf_chosen = gpd.GeoDataFrame(data_chosen['total_demand'], geometry = geometry_chosen)
-    gdf_chosen = gpd.GeoDataFrame(data_chosen['capacity_used'], geometry = geometry_chosen)
-=======
-    gdf = gpd.GeoDataFrame(data['total_demand'], geometry = geometry)
-    gdf_chosen = gpd.GeoDataFrame(data_chosen['total_demand'], geometry = geometry_chosen)
->>>>>>> ed8707c0ff1d12b5833a8b625121b16556ccfc4d
+    gdf_chosen = gpd.GeoDataFrame(data_chosen['capacity_not_used'], geometry = geometry_chosen)
 
     gdf = gdf.set_crs(epsg = 4326, inplace=True)
     gdf = gdf.to_crs(epsg = 3857)
@@ -79,13 +66,11 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     gdf_chosen = gdf_chosen.to_crs(epsg = 3857)
 
     plt.figure()
-<<<<<<< HEAD
     ax = gdf.plot(figsize = (16, 8))
     # ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
-    # ax = gdf.plot(column = 'capacity_used', figsize = (16, 8), cmap = 'winter', legend = True)
     # gdf_chosen.plot(ax = ax, color = 'orange')
     # gdf_chosen.plot(ax = ax, column = 'total_demand', cmap = 'autumn', legend = True)
-    gdf_chosen.plot(ax = ax, column = 'capacity_used', cmap = 'autumn', legend = True)
+    gdf_chosen.plot(ax = ax, column = 'capacity_not_used', cmap = 'autumn', legend = True)
     ctx.add_basemap(ax)
     plt.savefig(save_name)
 
@@ -105,21 +90,6 @@ data_capacity = pd.read_excel('Data\Potential Locations.xlsx')['Annual capacity'
 data['total_demand'] = data[['Group 1', 'Group 2', 'Group 3', 'Group 4']].sum(axis = 1)
 for i, fac in enumerate(chosen):
     data.loc[fac, 'capacity_not_used'] = (data_capacity[fac] - sum([data['total_demand'][j] for j in assign[i]]))/data_capacity[fac]*100
-=======
-    ax = gdf.plot(column = 'total_demand', figsize = (16, 8), cmap = 'winter', legend = True)
-    gdf_chosen.plot(ax = ax, column = 'total_demand', cmap = 'autumn', legend = True)
-    ctx.add_basemap(ax)
-    plt.savefig(save_name)
-
-with open('log.txt') as f:
-    log_data = f.read()
-chosen = re.findall(r'Facility (.*?) open to serve customers: ', log_data)
-chosen = [int(i) for i in chosen]
-
-# data = read_convert('Data\Potential Locations.xlsx', easting = 'X (Easting)', northing = 'Y (Northing)', lat = 'lat', lon = 'lon')
-data = read_convert('Data\Postcode Districts.xlsx', easting = 'X (Easting)', northing = 'Y (Northing)', lat = 'lat', lon = 'lon')
-data['total_demand'] = data[['Group 1', 'Group 2', 'Group 3', 'Group 4']].sum(axis = 1)
->>>>>>> ed8707c0ff1d12b5833a8b625121b16556ccfc4d
 data_chosen = data.iloc[chosen]
 
 plot_map(data)
