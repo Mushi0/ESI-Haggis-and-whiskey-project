@@ -78,7 +78,7 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
 #     log_data = f.read()
 # chosen = re.findall(r'Facility (.*?) open to serve customers: ', log_data)
 # chosen = [int(i) for i in chosen]
-with open('log_new.txt') as f:
+with open('log.txt') as f:
     log_data = f.read()
 chosen_assign = re.findall(r'Facility (.*?) open to serve customers: (.*?)\n', log_data)
 chosen = [int(item[0]) for item in chosen_assign]
