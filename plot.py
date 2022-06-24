@@ -104,7 +104,7 @@ def plot_map_lines(data, data_chosen, chosen, assign, save_name = 'plot_map_line
 #     log_data = f.read()
 # chosen = re.findall(r'Facility (.*?) open to serve customers: ', log_data)
 # chosen = [int(i) for i in chosen]
-with open('logs\log_2.txt') as f:
+with open('logs\log_3.txt') as f:
     log_data = f.read()
 chosen_assign = re.findall(r'Facility (.*?) open to serve customers: (.*?)\n', log_data)
 chosen = [int(item[0]) for item in chosen_assign]

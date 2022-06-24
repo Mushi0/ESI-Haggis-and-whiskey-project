@@ -113,11 +113,16 @@ class haggis_model:
         #         # self.mdl.add(self.mdl.sum(self.x[i_prime, j] for i_prime in self.network.candidates_index if \
         #         #         self.network.dis_districts_districts[i_prime, j] < self.network.dis_districts_districts[i, j]) + \
         #         #         self.y[i] <= 1 + self.U[j])
+        # for i in self.network.candidates_index:
+        #     for j in self.network.customers_index:
+        #         self.mdl.add(self.x[i, j] >= self.y[i] -
+        #                 self.mdl.sum(self.y[i_prime] for i_prime in self.network.candidates_index if \
+        #                 self.network.dis_districts_districts[i_prime, j] < self.network.dis_districts_districts[i, j]))
 
         self.total_cost = self.mdl.scal_prod(self.y, self.network.fixed_cost) + \
-                        self.time_horizon*0.001*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
+                        self.time_horizon*0.001/1.6*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
                         for i in self.network.candidates_index for j in self.network.customers_index for t in self.network.food_index) + \
-                        self.time_horizon*0.001*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
+                        self.time_horizon*0.001/1.6*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
                         for k in self.network.suppliers_index for i in self.network.candidates_index)
         # self.total_cost = self.mdl.scal_prod(self.y, self.network.fixed_cost) + \
         #                 self.time_horizon*0.001*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
@@ -159,10 +164,10 @@ class haggis_model:
                 'best bound': [self.mdl.solve_details.best_bound],
                 'objective': [self.msol[self.total_cost]],
                 'Facility building cost': [sum([self.msol[self.y[i]]*self.network.fixed_cost[i] for i in self.network.candidates_index])],
-                'Transportation cost': [self.time_horizon*0.001*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*\
+                'Transportation cost': [self.time_horizon*0.001/1.6*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*\
                         self.network.demand[j, t]*self.msol[self.x[i, j]] for i in self.network.candidates_index \
                         for j in self.network.customers_index for t in self.network.food_index) + \
-                        self.time_horizon*0.001*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.msol[self.z[k, i]] \
+                        self.time_horizon*0.001/1.6*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.msol[self.z[k, i]] \
                         for k in self.network.suppliers_index for i in self.network.candidates_index)]})
                 #         for k in self.network.suppliers_index for i in self.network.candidates_index)],
                 # 'Penalty': [self.network.penalty*sum(self.msol[self.U[j]] for j in self.network.customers_index)]})
