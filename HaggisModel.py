@@ -69,8 +69,10 @@ class haggis_model:
             print("No solution found.")
         print("*******************End Solution*******************")
 
-    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 3600, mip_gap = 0.01, json = False, clean_before_solve = True):
+    def run_model(self, time_horizon = 20, print_detail = True, print_log = False, time_limit = 1200, mip_gap = 0.01, json = False, clean_before_solve = True):
         self.mdl = Model()
+        # self.mdl = Model(name = 'benders')
+        # self.mdl.parameters.benders.strategy = 3
 
         # self.M = np.max(self.network.dis_suppliers_districts)
         self.time_horizon = time_horizon
@@ -93,6 +95,9 @@ class haggis_model:
         for i in self.network.candidates_index:
             for j in self.network.customers_index:
                 self.mdl.add(self.x[i, j] <= self.y[i])
+        # # A customer i is assigned to j only if a facility is located at j
+        # for i in self.network.candidates_index:
+        #     self.mdl.add(self.mdl.sum(self.x[i, j] for j in self.network.customers_index) <= self.network.nb_customers*self.y[i])
         # demand does not exeed supplies
         for i in self.network.candidates_index:
             for t in self.network.food_index:
@@ -105,10 +110,16 @@ class haggis_model:
         # production level constraints
         for k in self.network.suppliers_index:
             self.mdl.add(self.network.production[k] >= self.mdl.sum(self.z[k, i] for i in self.network.candidates_index))
-        # less than 150 miles
-        for i in self.network.candidates_index:
-            for j in self.network.customers_index:
-                self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
+        # # less than 150 miles
+        # for i in self.network.candidates_index:
+        #     for j in self.network.customers_index:
+        #         self.mdl.add(self.x[i, j]*self.network.dis_districts_districts[i, j] <= 150*1.6)
+        # # less than 150 miles
+        # for i in self.network.candidates_index:
+        #     for j in self.network.customers_index:
+        #         if self.network.dis_districts_districts[i, j] > 150*1.6:
+        #             # self.mdl.add(self.x[i, j] == 0)
+        #             self.x[i, j].ub = 0
         # # number of vans
         # for i in self.network.candidates_index:
         #     for k in self.network.suppliers_index:
@@ -137,11 +148,11 @@ class haggis_model:
                         self.network.dis_districts_districts[i_prime, j] < self.network.dis_districts_districts[i, j]))
 
         self.total_cost = self.mdl.scal_prod(self.y, self.network.fixed_cost) + \
-                        self.time_horizon*self.network.cost_customers*sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
-                        for i in self.network.candidates_index for j in self.network.customers_index for t in self.network.food_index)*0.001 + \
-                        self.time_horizon*sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
-                        for k in self.network.suppliers_index for i in self.network.candidates_index)*0.001 + \
-                        self.network.penalty*sum(self.U[j] for j in self.network.customers_index)
+                        self.time_horizon*0.001*self.network.cost_customers*self.mdl.sum(self.network.dis_districts_districts[i, j]*self.network.demand[j, t]*self.x[i, j] \
+                        for i in self.network.candidates_index for j in self.network.customers_index for t in self.network.food_index) + \
+                        self.time_horizon*0.001*self.mdl.sum(self.network.cost_suppliers[k]*self.network.dis_suppliers_districts[i, k]*self.z[k, i] \
+                        for k in self.network.suppliers_index for i in self.network.candidates_index) + \
+                        self.network.penalty*self.mdl.sum(self.U[j] for j in self.network.customers_index)
                         # self.network.penalty*sum(self.U[j] for j in self.network.customers_index) + \
                         # self.time_horizon*sum(self.network.cost_customers*self.network.weight_vans*self.m[i, j]*\
                         # (self.network.dis_districts_districts[i, j] + self.network.dis_districts_districts[i, j]) \

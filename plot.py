@@ -47,7 +47,7 @@ def plot_map(data, save_name = 'map.png'):
     ctx.add_basemap(ax)
     # crs = {'init': 'epsg:4326'}
     # ctx.add_basemap(ax, crs = crs)
-    plt.savefig(save_name)
+    # plt.savefig(save_name)
 
 def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     geometry = [Point(xy) for xy in zip(data['lat'], data['lon'])]
@@ -72,13 +72,13 @@ def plot_map_chosen(data, data_chosen, save_name = 'map_chosen.png'):
     # gdf_chosen.plot(ax = ax, column = 'total_demand', cmap = 'autumn', legend = True)
     gdf_chosen.plot(ax = ax, column = 'capacity_not_used', cmap = 'autumn', legend = True)
     ctx.add_basemap(ax)
-    plt.savefig(save_name)
+    # plt.savefig(save_name)
 
 # with open('log.txt') as f:
 #     log_data = f.read()
 # chosen = re.findall(r'Facility (.*?) open to serve customers: ', log_data)
 # chosen = [int(i) for i in chosen]
-with open('log.txt') as f:
+with open('log_new.txt') as f:
     log_data = f.read()
 chosen_assign = re.findall(r'Facility (.*?) open to serve customers: (.*?)\n', log_data)
 chosen = [int(item[0]) for item in chosen_assign]

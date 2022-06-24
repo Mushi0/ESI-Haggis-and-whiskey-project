@@ -7,3 +7,4 @@ my_network.read_data()
 my_model = haggis_model(my_network)
 
 my_model.run_model()
+# my_model.result

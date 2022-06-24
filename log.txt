@@ -426,8 +426,8 @@ Facility 439 open to serve customers: 439
 
 Penalty applied to customer: 6, 11, 85, 108, 117, 120, 128, 129, 142, 149, 157, 162, 165, 204, 207, 208, 215, 216, 238, 291, 295, 300, 321, 336, 388, 390, 398, 399
 
-Total cost is: 4232057608.8381195
+Total cost is: 438962891.6089575
 Facility building cost: 433766000.0
-Transportation cost: 3796891608.838
+Transportation cost: 3796891.608838
 Penalty: 1400000.0
 *******************End Solution*******************
